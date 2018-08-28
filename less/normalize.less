@@ -1,0 +1,70 @@
+html
+{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    font-size: 0;
+    
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    background-color: @gray50;
+}
+
+table
+{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td, th
+{
+    padding: 0;
+    vertical-align: top;
+}
+
+th
+{
+    font-weight: normal;
+}
+
+li
+{
+    margin: 0 0 12px 0;
+}
+
+input, textarea
+{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    .monospaceText();
+}
+
+::placeholder {
+    color: @gray400;
+ }
+
+div,
+input,
+button {
+    border-radius: 0!important;
+}
+
+a:link,
+a:visited
+{
+    color: @color800;
+}
+
+.hidden
+{
+    display: none!important;
+}

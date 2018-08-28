@@ -1,0 +1,77 @@
+.sidebar {
+    //height: 100%;
+    padding: @unit / 4;
+    width: @unit * 6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: @gray300;
+
+    .input-row {
+        white-space: nowrap;
+        display: flex;
+        .label {
+            .text();
+            width: @unit * 3 + @unit / 2;
+            .noSelection();
+            cursor: default;
+            height: 24px;
+        }
+    
+        .input {
+            width: 100%;
+            flex-grow: 1;
+            margin-bottom: 2px;
+            input {
+                width: 100%;
+                height: 24px;
+                .monospaceText();
+            }
+        }
+    }
+
+    .buttons {
+
+        display: flex;
+        justify-content: space-between;
+
+        .button {
+            background-color: @color900;
+            color: white;
+            height: @unit / 2;
+            .text();
+            cursor: pointer;
+            margin-top: @unit / 4 - 2px;
+            margin-bottom: @unit / 4;
+            text-align: center;
+            .noSelection();
+            width: @unit * 3 - 6px;
+        }
+
+        .button:hover {
+            background-color: @color800;
+        }
+
+        .button.disabled,
+        .button.disabled:hover {
+            background-color: @gray700;
+            cursor: default;
+        }
+    }
+
+    .select {
+        width: 100%;
+        height: calc(100% - 144px - 8px + 2px);
+        select {
+            width: 100%;
+            height: 100%;
+            .monospaceText();
+            overflow: auto;
+
+            option {
+                padding: 4px 0 0 0;
+            }
+        }
+    }
+}

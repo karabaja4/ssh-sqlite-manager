@@ -1,0 +1,59 @@
+// @import url('https://fonts.googleapis.com/css?family=Roboto');
+// @import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+
+.selection(...)
+{
+    -webkit-touch-callout: @arguments;
+      -webkit-user-select: @arguments;
+         -moz-user-select: @arguments;
+          -ms-user-select: @arguments;  
+              user-select: @arguments;
+}
+
+.noSelection()
+{
+    .selection(none);
+};
+
+.text()
+{
+    font-family: Arial, sans-serif!important;
+    font-size: 13px!important;
+    line-height: @unit / 2!important;
+};
+
+.monospaceText()
+{
+    font-family: Consolas, monospace!important;
+    font-size: 14px!important;
+}
+
+.bold()
+{
+    font-weight: bold;
+}
+
+.gray()
+{
+    color: @gray700;
+}
+
+.black()
+{
+    color: @gray900;
+}
+
+.fullBlack()
+{
+    color: @gray1000;
+}
+
+.white()
+{
+    color: @gray0;
+}
+
+.bold()
+{
+    font-weight: bold;
+}

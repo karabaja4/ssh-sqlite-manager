@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>SSH SQLite Manager</title>
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/codemirror.min.css">
+  </head>
+  <body>
+
+    <div class="sidebar">
+
+      <div class="input-row">
+        <div class="label">Hostname:</div>
+        <div class="input"><input id="hostname" type="text" placeholder="e.g. my.server.com"></div>
+      </div>
+
+      <div class="input-row">
+        <div class="label">Database path:</div>
+        <div class="input"><input id="path" type="text" placeholder="e.g. /home/user/main.db"></div>
+      </div>
+
+      <div class="input-row">
+          <div class="label">SSH user:</div>
+          <div class="input"><input id="user" type="text" placeholder="e.g. user"></div>
+        </div>
+
+      <div class="input-row">
+        <div class="label">Private key path:</div>
+        <div class="input"><input id="key" type="text" placeholder="e.g. /home/user/.ssh/id_rsa"></div>
+      </div>
+
+      <div class="buttons">
+        <div id="load-tables-button" class="button">Load Tables</div>
+        <div id="execute-query-button" class="button">Execute Query</div>
+      </div>
+
+      <div class="select">
+        <select id="tables" name="tables" size="10000"></select>
+      </div>
+
+    </div>
+
+    <div class="mainbar">
+      <div class="query">
+        <div class="query-text"></div>
+      </div>
+      <div id="result" class="result"></div>
+    </div>
+
+    <script src="scripts/vendor.min.js"></script>
+    <script>require('./renderer.js')</script>
+  </body>
+</html>

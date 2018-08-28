@@ -1,0 +1,65 @@
+.mainbar {
+    padding: @unit / 4;
+    position: absolute;
+    top: 0;
+    left: @unit * 6 + @unit / 2;
+    bottom: 0;
+    right: 0;
+    background-color: @gray200;
+
+    .query {
+        height: 30%;
+        .query-text {
+            height: 100%;
+        }
+    }
+
+    .result {
+        background-color: @gray50;
+        height: calc(70% - @unit / 4);
+        margin-top: @unit / 4;
+        overflow-y: auto;
+
+        #result-table {
+            .monospaceText();
+            width: 100%;
+            tr {
+                height: @unit / 2;
+            }
+            th, td {
+                padding: 0 6px 0 6px;
+                //border: 1px solid black;
+                white-space: nowrap;
+                vertical-align: middle;
+            }
+            // td {
+            //     cursor: pointer;
+            // }
+            th {
+                background-color: @gray400;
+                text-align: left;
+                position: sticky;
+                top: 0px;
+            }
+            tr:hover {
+                background-color: @gray300;
+            }
+            tr.selected {
+                background-color: @gray300;
+            }
+        }
+
+        #result-message {
+            padding: @unit / 4;
+            .monospaceText();
+        }
+
+        #result-message.error {
+            color: red;
+        }
+
+        #result-message.success {
+            color: green;
+        }
+    }
+}
