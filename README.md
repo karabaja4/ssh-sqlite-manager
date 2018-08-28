@@ -1,4 +1,5 @@
-# ssh-sqlite-manager
+# SSH SQLite Manager
+
 This tool allows you to manage your SQLite databases remotly using SSH. The only dependency is the `sqlite3` binary installed on the server you wish to query.
 
 # How to use
@@ -26,4 +27,5 @@ Download prebuilt Electron archives for your platform:
 # Screenshots
 
 ![alt text](https://karabaja4.blob.core.windows.net/stuff/ssm2.png)
+
 ![alt text](https://karabaja4.blob.core.windows.net/stuff/ssm_edit2.png)
