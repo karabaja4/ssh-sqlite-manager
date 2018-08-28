@@ -24,10 +24,6 @@ Download prebuilt Electron archives for your platform:
 [ssh-sqlite-manager-win32-x64.zip](https://karabaja4.blob.core.windows.net/stuff/ssh-sqlite-manager-win32-x64.zip)\
 [ssh-sqlite-manager-darwin-x64.zip](https://karabaja4.blob.core.windows.net/stuff/ssh-sqlite-manager-darwin-x64.zip)
 
-# Troubleshooting
-
-You may come across "path too long" error when extracting prebuilt archives on Windows. This is common error when copying Node.js node_modules folder on Windows machine because of large number of sub-directories and long file/folder names. You can fix this error by choosing a short path to extract in, for example `C:\a`. Otherwise, you can disable the 260-character MAX_PATH limit in Windows. Check this [MSDN](https://msdn.microsoft.com/en-us/library/aa365247(v=vs.85).aspx#maxpath) article.
-
 # Screenshots
 
 ![alt text](https://karabaja4.blob.core.windows.net/stuff/ssm2.png)
