@@ -6,7 +6,7 @@ const node_ssh = require('node-ssh');
 const ssh = new node_ssh();
 const { ipcRenderer } = require('electron');
 const Dialogs = require('dialogs');
-const csv=require("csvtojson");
+const csv = require("csvtojson");
 const dialogs = Dialogs(opts={});
 
 let executingQuery = false;
