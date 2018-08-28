@@ -26,7 +26,7 @@ Download prebuilt Electron archives for your platform:
 
 # Troubleshooting
 
-You may come across "path too long" error when extracting prebuilt archives on Windows. This is common error which comes while copying node_modules folder within Windows machine because of some large number of sub-directories and long file/folder names. You can fix this error by choosing a short path to extract in, for example `C:\a`. Otherwise, you can disable the 260-character MAX_PATH limit in Windows. Check this [MSDN](https://msdn.microsoft.com/en-us/library/aa365247(v=vs.85).aspx#maxpath) article.
+You may come across "path too long" error when extracting prebuilt archives on Windows. This is common error when copying Node.js node_modules folder on Windows machine because of large number of sub-directories and long file/folder names. You can fix this error by choosing a short path to extract in, for example `C:\a`. Otherwise, you can disable the 260-character MAX_PATH limit in Windows. Check this [MSDN](https://msdn.microsoft.com/en-us/library/aa365247(v=vs.85).aspx#maxpath) article.
 
 # Screenshots
 
