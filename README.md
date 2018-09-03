@@ -12,7 +12,7 @@ Enter:
 
 Use `Load Tables` to list all the database tables. Double click the table to list top 1000 rows in the table. This mode allows editing of the individual cells inside the table (by double clicking the cell, see screenshots below).
 
-Use `Execute Query` to execute a query in the main editor. Select a line (or lines) in the editor to execute only those lines. Use `Crtl-E` as a shortcut to the Execute button.
+Use `Execute Query` to execute a query in the main editor. Select a line (or lines) in the editor to execute only those lines. Use `Ctrl-E` as a shortcut to the Execute button.
 
 # Download
 
