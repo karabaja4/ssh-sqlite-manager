@@ -129,7 +129,9 @@ function setResult(html, isError, tableInfo) {
     }
     const isTable = html.startsWith("<TR>");
     const content = isTable ? getTableHtml(html) : getMessageHtml(html, isError);
-    document.getElementById("result").innerHTML = content;
+    const resultElement = document.getElementById("result");
+    resultElement.innerHTML = content;
+    document.getElementById("status").innerHTML = (isTable ? resultElement.getElementsByTagName("tr").length - 1 : 0) + " rows returned";
     assignSelectionEventsTable("result-table", tableInfo);
     assignSelectedRowsEvents("result-table");
 }

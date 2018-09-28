@@ -16,8 +16,8 @@
 
     .result {
         background-color: @gray50;
-        height: calc(70% - @unit / 4);
-        margin-top: @unit / 4;
+        height: calc(70% - @unit / 2 - @unit / 4);
+        //margin-top: @unit / 4;
         overflow-y: auto;
 
         #result-table {
@@ -61,5 +61,13 @@
         #result-message.success {
             color: green;
         }
+    }
+
+    .status {
+        height: @unit / 2;
+        //background-color: @gray300;
+        text-align: right;
+        //padding-right: 6px;
+        .text();
     }
 }
