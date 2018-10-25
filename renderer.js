@@ -264,8 +264,12 @@ function doExecuteQuery(query, tableNameToLoadMetadata) {
 }
 
 function execute(onsuccess, onerror) {
+    const value = getValue("hostname");
+    const hostname = value.split(":")[0];
+    const port = parseInt(value.split(":")[1]) || 22;
     ssh.connect({
-        host: getValue("hostname"),
+        host: hostname,
+        port: port,
         username: getValue("user"),
         privateKey: getValue("key")
     }).then(onsuccess).catch((err) => {
