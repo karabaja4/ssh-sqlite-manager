@@ -15,14 +15,14 @@ rm -rf node_modules/csvtojson/.nyc_output/*
 rm -rf node_modules/csvtojson/.ts-node/*
 
 echo "packaging"
-electron-packager --all .
+electron-packager --platform=linux --arch=x64 .
 
 echo "compressing"
-zip -r ssh-sqlite-manager-darwin-x64.zip ssh-sqlite-manager-darwin-x64/
-zip -r ssh-sqlite-manager-win32-x64.zip ssh-sqlite-manager-win32-x64
-zip -r ssh-sqlite-manager-win32-ia32.zip ssh-sqlite-manager-win32-ia32
+#zip -r ssh-sqlite-manager-darwin-x64.zip ssh-sqlite-manager-darwin-x64
+# zip -r ssh-sqlite-manager-win32-x64.zip ssh-sqlite-manager-win32-x64
+# zip -r ssh-sqlite-manager-win32-ia32.zip ssh-sqlite-manager-win32-ia32
 zip -r ssh-sqlite-manager-linux-x64.zip ssh-sqlite-manager-linux-x64
-zip -r ssh-sqlite-manager-linux-ia32.zip ssh-sqlite-manager-linux-ia32
+#zip -r ssh-sqlite-manager-linux-ia32.zip ssh-sqlite-manager-linux-ia32
 
 mv *.zip dist/
 

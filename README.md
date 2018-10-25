@@ -16,13 +16,9 @@ Use `Execute Query` to execute a query in the main editor. Select a line (or lin
 
 # Download
 
-Download prebuilt Electron archives for your platform:
+Download prebuilt Electron archive:
 
-[ssh-sqlite-manager-linux-ia32.zip](https://karabaja4.blob.core.windows.net/stuff/ssh-sqlite-manager-linux-ia32.zip)\
 [ssh-sqlite-manager-linux-x64.zip](https://karabaja4.blob.core.windows.net/stuff/ssh-sqlite-manager-linux-x64.zip)\
-[ssh-sqlite-manager-win32-ia32.zip](https://karabaja4.blob.core.windows.net/stuff/ssh-sqlite-manager-win32-ia32.zip)\
-[ssh-sqlite-manager-win32-x64.zip](https://karabaja4.blob.core.windows.net/stuff/ssh-sqlite-manager-win32-x64.zip)\
-[ssh-sqlite-manager-darwin-x64.zip](https://karabaja4.blob.core.windows.net/stuff/ssh-sqlite-manager-darwin-x64.zip)
 
 # Screenshots
 
