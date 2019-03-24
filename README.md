@@ -8,7 +8,7 @@ Enter:
 * Hostname
 * Database path (on the server)
 * SSH user
-* Private key path ([RSA private key](https://wiki.archlinux.org/index.php/SSH_keys#Generating_an_SSH_key_pair) without a password)
+* Private key path ([RSA private key](https://wiki.archlinux.org/index.php/SSH_keys#Generating_an_SSH_key_pair) without a password) or a Password
 
 Use `Load Tables` to list all the database tables. Double click the table to list top 1000 rows in the table. This mode allows editing of the individual cells inside the table (by double clicking the cell, see screenshots below).
 
