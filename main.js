@@ -1,21 +1,37 @@
 
-const { app, BrowserWindow, globalShortcut } = require('electron');
+const { app, BrowserWindow, Menu } = require('electron');
 
 let mainWindow;
 
 function createWindow () {
   mainWindow = new BrowserWindow({width: 1200, height: 600});
-  mainWindow.setMenuBarVisibility(false);
+
   mainWindow.loadFile('index.html');
   mainWindow.on('closed', function () {
     mainWindow = null;
   });
-  globalShortcut.register('Ctrl+E', () => {
-    mainWindow.webContents.send('executeQuery');
-  });
-  globalShortcut.register('Ctrl+Shift+E', () => {
-    mainWindow.webContents.send('loadTables');
-  });
+
+  const menu = Menu.buildFromTemplate(
+  [
+    {
+      label: 'Query',
+      submenu:
+      [
+        {
+          label: 'ExecuteQuery',
+          accelerator: 'Ctrl+E',
+          click: () => { mainWindow.webContents.send('executeQuery'); }
+        },
+        {
+          label: 'LoadTables',
+          accelerator: 'Ctrl+T',
+          click: () => { mainWindow.webContents.send('loadTables'); }
+        }
+      ]
+    }
+  ]);
+  Menu.setApplicationMenu(menu);
+  mainWindow.setMenuBarVisibility(false);
 }
 
 app.on('ready', createWindow);

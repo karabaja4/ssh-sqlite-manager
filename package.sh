@@ -11,8 +11,8 @@ echo "installing node modules"
 rm -rf node_modules
 npm install
 
-rm -rf node_modules/csvtojson/.nyc_output/*
-rm -rf node_modules/csvtojson/.ts-node/*
+#rm -rf node_modules/csvtojson/.nyc_output/*
+#rm -rf node_modules/csvtojson/.ts-node/*
 
 echo "packaging"
 electron-packager --platform=linux --arch=x64 .

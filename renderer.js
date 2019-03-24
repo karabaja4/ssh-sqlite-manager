@@ -22,23 +22,23 @@ function setExecuting(type, state) {
     const select = document.getElementById("tables");
     //const txtarea = document.getElementById("query-text");
     if (type == "query") {
-        const button = executeButton();
+        const button = getElement("execute-query-button");
         button.classList.remove("disabled");
         if (state) {
             button.classList.add("disabled");
             button.innerHTML = "Executing...";
         } else {
-            button.innerHTML = "Execute Query";
+            button.innerHTML = "Execute (Ctrl+E)";
         }
         executingQuery = state;
     } else if (type == "table") {
-        const button = loadTablesButton();
+        const button = getElement("load-tables-button");
         button.classList.remove("disabled");
         if (state) {
             button.classList.add("disabled");
             button.innerHTML = "Loading...";
         } else {
-            button.innerHTML = "Load Tables";
+            button.innerHTML = "Load (Ctrl+T)";
         }
         executingTables = state;
     }
@@ -54,12 +54,8 @@ function getValue(id) {
     return document.getElementById(id).value;
 }
 
-function executeButton() {
-    return document.getElementById("execute-query-button");
-}
-
-function loadTablesButton() {
-    return document.getElementById("load-tables-button");
+function getElement(id) {
+    return document.getElementById(id);
 }
 
 function getTableHtml(html) {
@@ -152,7 +148,11 @@ function setTableList(list) {
 }
 
 function command(params, query) {
-    const cmd = `sqlite3 ${params ? params.join(" ") + " " : ""}${getValue("path")} "${query}"`;
+    const path = getValue("path");
+    if (!path) {
+        throw new Error("Database path not found");
+    }
+    const cmd = `sqlite3 ${params ? params.join(" ") + " " : ""}${path} "${query}"`;
     return cmd;
 }
 
@@ -185,7 +185,9 @@ function doUpdate(table, column, value, pkColumn, pkValue, callback) {
     }
     setExecuting("query", true);
     execute(() => {
-        const cmd = `UPDATE ${table} SET ${column} = '${value}' WHERE ${pkColumn} = '${pkValue}'`;
+        const pk = pkValue.replace(/"/g, '\\"').replace(/'/g, "''");
+        const val = value.replace(/"/g, '\\"').replace(/'/g, "''");;
+        const cmd = `UPDATE ${table} SET ${column} = '${val}' WHERE ${pkColumn} = '${pk}'`;
         ssh.execCommand(command(null, cmd)).then((result) => {
             setExecuting("query", false);
             if (result.stderr) {
@@ -264,15 +266,43 @@ function doExecuteQuery(query, tableNameToLoadMetadata) {
 }
 
 function execute(onsuccess, onerror) {
+
+    // validate
     const value = getValue("hostname");
+    if (!value) {
+        onerror(new Error("Hostname not defined"));
+        return;
+    }
+    const user = getValue("user");
+    if (!user) {
+        onerror(new Error("User not defined"));
+        return;
+    }
+    const key = getValue("key");
+    const password = getValue("password");
+    if (key && password) {
+        onerror(new Error("Cannot use both key and password"));
+        return;
+    }
+    if (!key && !password) {
+        onerror(new Error("Private key or password need to be defined."));
+        return;
+    }
+
     const hostname = value.split(":")[0];
     const port = parseInt(value.split(":")[1]) || 22;
-    ssh.connect({
+    const config = {
         host: hostname,
         port: port,
-        username: getValue("user"),
-        privateKey: getValue("key")
-    }).then(onsuccess).catch((err) => {
+        username: user
+    };
+    if (key) {
+        config.privateKey = key;
+    }
+    if (password) {
+        config.password = password;
+    }
+    ssh.connect(config).then(onsuccess).catch((err) => {
         if (onerror) {
             onerror(err);
         }
@@ -280,12 +310,20 @@ function execute(onsuccess, onerror) {
 }
 
 function bind() {
-    loadTablesButton().onclick = () => {
+    getElement("load-tables-button").onclick = () => {
         doLoadTables();
     }
-    executeButton().onclick = () => {
+    getElement("execute-query-button").onclick = () => {
         doExecuteQuery(getQuery());
     }
+    const key = getElement("key");
+    const password = getElement("password");
+    key.oninput = () => {
+        password.disabled = !!key.value.length;
+    };
+    password.oninput = () => {
+        key.disabled = !!password.value.length;
+    };
 }
 
 ipcRenderer.on("loadTables", () => {
@@ -319,12 +357,18 @@ function loadConfig() {
     get("path");
     get("user");
     get("key");
+    get("password");
+
+    const key = getElement("key");
+    const password = getElement("password");
+    key.disabled = !!password.value.length;
+    password.disabled = !!key.value.length;
 }
 
 function saveConfig() {
     const set = (name) => {
         const value = document.getElementById(name).value;
-        if (value) {
+        if (value || value === "") {
             localStorage.setItem(name, value);
         }
     }
@@ -332,6 +376,7 @@ function saveConfig() {
     set("path");
     set("user");
     set("key");
+    set("password");
 }
 
 bind();
