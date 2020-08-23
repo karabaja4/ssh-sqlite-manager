@@ -9,7 +9,8 @@
   "dependencies": {
     "node-ssh": "^11.0.0",
     "dialogs": "^2.0.1",
-    "csvtojson": "^2.0.10"
+    "csvtojson": "^2.0.10",
+    "lodash.merge": "^4.6.2"
   },
   "devDependencies": {
     "electron": "^9.2.1",
