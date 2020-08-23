@@ -7,15 +7,16 @@
     "start": "electron ."
   },
   "dependencies": {
-    "node-ssh": "^5.1.2",
-    "dialogs": "^1.1.20",
-    "csvtojson": "^2.0.8"
+    "node-ssh": "^11.0.0",
+    "dialogs": "^2.0.1",
+    "csvtojson": "^2.0.10"
   },
   "devDependencies": {
-    "electron": "^2.0.0",
-    "gulp": "^3.9.1",
+    "electron": "^9.2.1",
+    "gulp": "^4.0.2",
     "gulp-less": "^4.0.1",
     "gulp-cssmin": "^0.2.0",
-    "gulp-rename": "^1.4.0"
+    "gulp-rename": "^2.0.0",
+    "electron-packager": "^15.1.0"
   }
 }

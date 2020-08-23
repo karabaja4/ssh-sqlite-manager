@@ -15,7 +15,8 @@ npm install
 #rm -rf node_modules/csvtojson/.ts-node/*
 
 echo "packaging"
-electron-packager --platform=linux --arch=x64 .
+declare dir="$(dirname $(readlink -f $0))"
+$dir/node_modules/electron-packager/bin/electron-packager.js --platform=linux --arch=x64 .
 
 echo "compressing"
 #zip -r ssh-sqlite-manager-darwin-x64.zip ssh-sqlite-manager-darwin-x64

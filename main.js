@@ -3,8 +3,14 @@ const { app, BrowserWindow, Menu } = require('electron');
 
 let mainWindow;
 
-function createWindow () {
-  mainWindow = new BrowserWindow({width: 1200, height: 600});
+function createWindow() {
+  mainWindow = new BrowserWindow({ 
+    width: 1200, 
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  });
 
   mainWindow.loadFile('index.html');
   mainWindow.on('closed', function () {
@@ -12,24 +18,24 @@ function createWindow () {
   });
 
   const menu = Menu.buildFromTemplate(
-  [
-    {
-      label: 'Query',
-      submenu:
-      [
-        {
-          label: 'ExecuteQuery',
-          accelerator: 'Ctrl+E',
-          click: () => { mainWindow.webContents.send('executeQuery'); }
-        },
-        {
-          label: 'LoadTables',
-          accelerator: 'Ctrl+T',
-          click: () => { mainWindow.webContents.send('loadTables'); }
-        }
-      ]
-    }
-  ]);
+    [
+      {
+        label: 'Query',
+        submenu:
+          [
+            {
+              label: 'ExecuteQuery',
+              accelerator: 'Ctrl+E',
+              click: () => { mainWindow.webContents.send('executeQuery'); }
+            },
+            {
+              label: 'LoadTables',
+              accelerator: 'Ctrl+T',
+              click: () => { mainWindow.webContents.send('loadTables'); }
+            }
+          ]
+      }
+    ]);
   Menu.setApplicationMenu(menu);
   mainWindow.setMenuBarVisibility(false);
 }
