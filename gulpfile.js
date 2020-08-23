@@ -4,7 +4,7 @@ var gulp = require('gulp'),
   rename = require('gulp-rename');
 
 gulp.task('watch', function () {
-    gulp.watch('less/*.less', ['less']);
+    gulp.watch('less/*.less', gulp.series('less'));
 });
 
 gulp.task('less', function () {
@@ -19,4 +19,4 @@ gulp.task('less', function () {
     .pipe(gulp.dest('css/'));
 });
 
-gulp.task('default', ['less', 'watch']);
+gulp.task('default', gulp.series('less', 'watch'));
