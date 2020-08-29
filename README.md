@@ -25,4 +25,3 @@ Download prebuilt Electron archive:
 ![alt text](https://karabaja4.blob.core.windows.net/stuff/ssm2.png)
 
 ![alt text](https://karabaja4.blob.core.windows.net/stuff/ssm_edit2.png)
-
