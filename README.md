@@ -22,6 +22,6 @@ Download prebuilt Electron archive:
 
 # Screenshots
 
-![alt text](https://karabaja4.blob.core.windows.net/stuff/ssm2.png)
+![Alt text](screenshot1.png?raw=true)
 
-![alt text](https://karabaja4.blob.core.windows.net/stuff/ssm_edit2.png)
+![Alt text](screenshot2.png?raw=true)
