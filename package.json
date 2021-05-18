@@ -15,7 +15,7 @@
     "node-ssh": "^11.1.1"
   },
   "devDependencies": {
-    "electron": "^12.0.8",
+    "electron": "^9.4.0",
     "electron-packager": "^15.2.0",
     "gulp": "^4.0.2",
     "gulp-cssmin": "^0.2.0",
