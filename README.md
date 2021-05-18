@@ -22,6 +22,6 @@ Download prebuilt Electron archive:
 
 # Screenshots
 
-![Alt text](screenshot1.png?raw=true)
+![screenshot1](https://user-images.githubusercontent.com/1043015/118727776-9d7d2780-b833-11eb-856a-6bb8865cb37c.png)
 
-![Alt text](screenshot2.png?raw=true)
+![screenshot2](https://user-images.githubusercontent.com/1043015/118727798-a79f2600-b833-11eb-9ceb-b73c14580928.png)

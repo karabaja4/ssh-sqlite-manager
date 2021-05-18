@@ -7,19 +7,19 @@
     "start": "electron ."
   },
   "dependencies": {
-    "node-ssh": "^11.0.0",
-    "dialogs": "^2.0.1",
+    "clean-css": "^5.1.2",
     "csvtojson": "^2.0.10",
+    "dialogs": "^2.0.1",
     "lodash.merge": "^4.6.2",
     "minimist": "^1.2.5",
-    "clean-css": "^4.2.3"
+    "node-ssh": "^11.1.1"
   },
   "devDependencies": {
-    "electron": "^9.2.1",
+    "electron": "^12.0.8",
+    "electron-packager": "^15.2.0",
     "gulp": "^4.0.2",
-    "gulp-less": "^4.0.1",
     "gulp-cssmin": "^0.2.0",
-    "gulp-rename": "^2.0.0",
-    "electron-packager": "^15.1.0"
+    "gulp-less": "^4.0.1",
+    "gulp-rename": "^2.0.0"
   }
 }
